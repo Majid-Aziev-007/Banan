@@ -1,0 +1,34 @@
+{% load static %}
+<nav id="header" class="navbar navbar-expand-lg header blackcolorclass">
+    <div class="container">
+    <a class="navbar-brand" href="#" style="font-weight: bold; letter-spacing: 3px;">BANAN</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0" style="margin-left: auto;">
+        <div class="row" style="margin-bottom: -20px;">
+            {% with request.resolver_match.view_name as view_name %}  
+               {% if not request.user.is_authenticated %}
+                  <li class="nav-item col">
+                    <a class="nav-link" style="text-align: center;" href="{% url 'users:login' %}">
+                      <i class="fa-regular fa-user fa-lg"></i>
+                      <p style="font-weight: 300;">Войти</p>        
+                    </a>
+                  </li>
+                  <li class="nav-item col">
+                    <a class="nav-link" style="text-align: center;" href="{% url 'users:signup' %}">
+                      <i class="fa-regular fa-address-card fa-lg" aria-hidden="true"></i>
+                      <p style="font-weight: 300;">Регистрация</p>        
+                    </a>
+                  </li>
+                {% endif %}
+          {% endwith %}
+        </div>
+      </ul>
+    </div>
+</nav>
+
+<ul class="nav justify-content-center" style="background-color: #ebebeb;">
+      <!-- Вот тут обновления -->
+</ul>

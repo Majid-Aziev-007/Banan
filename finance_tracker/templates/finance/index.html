@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+Banan Finance
+{% endblock %} 
+
+{% block content %}
+<center>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <a type="button" href="{% url 'finance:operation_create' %}" class="btn btn-secondary">Операция</a>
+      <a type="button" href="{% url 'finance:index' %}" class="btn btn-secondary">Анализ</a>
+      <a type="button" class="btn btn-secondary">Рекомендации</a>
+    </div>
+</center>
+
+<h3>{{ money_user.amount }} RUB</h3>
+
+
+<br>
+{% for operation in operations %}
+<div class="card" style="margin-bottom: 20px;">
+    <div class="card-body">
+        {{ operation.amount }} RUB
+        {% if operation.source %}
+            <h6>[ {{ operation.source }} ]</h6>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
